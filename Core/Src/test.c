@@ -13,10 +13,12 @@
 #include <stdint.h>
 #include "gpio.h"
 #include "Pingpong.h"
+#include "stdbool.h"
 
 void Test_program(void) {
 	//Test_Led();
-	Test_Show_points();
+	//Test_Show_points();
+	Test_buttons();
 }
 
 /**
@@ -53,4 +55,40 @@ void Test_Show_points(void) {
 		}
 	}
 	return;
+}
+
+/**
+ * @brief Test for function L_hit and R_hit. Tests if left and right buttons work by changing the LEDs.
+ * @param None
+ * @return None
+ */
+void Test_buttons(void) {
+	int8_t j;
+
+	/* Checking buttons */
+
+	j = 4;
+	Led_on(j); // Light on
+
+	while(j < 9 && j > 0) // Wait for left button hit
+	{
+		if(L_hit() == true)
+		{
+			j++;	// next led to the right
+			Led_on(j); // Light on
+			HAL_Delay(100);
+			while (L_hit() == true); // Wait for button release
+			HAL_Delay(100);
+		}
+
+		if(R_hit() == true) // Wait for right button hit
+		{
+			j--; // next led to the left
+			Led_on(j); // Light on
+			HAL_Delay(100);
+			while(R_hit() == true); // Wait for button release
+			HAL_Delay(100);
+			if (j < 1) j = 0; // start again from left
+		}
+	}
 }

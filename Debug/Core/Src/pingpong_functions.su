@@ -1,6 +1,5 @@
-pingpong_functions.c:23:6:Led_on	24	static
-pingpong_functions.c:66:6:setLed	16	static
-pingpong_functions.c:78:6:resetLed	16	static
-pingpong_functions.c:90:6:setLeds	16	static
-pingpong_functions.c:100:6:resetLeds	16	static
-pingpong_functions.c:117:6:Show_points	24	static
+pingpong_functions.c:24:6:Led_on	24	static
+pingpong_functions.c:67:6:setLed	16	static
+pingpong_functions.c:86:6:Show_points	24	static
+pingpong_functions.c:103:6:L_hit	8	static
+pingpong_functions.c:113:6:R_hit	8	static

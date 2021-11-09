@@ -12,6 +12,7 @@
 #include "Pingpong.h"
 #include <stdint.h>
 #include "gpio.h"
+#include "stdbool.h"
 
 
 /**
@@ -75,38 +76,6 @@ void setLed(uint8_t led) {
 		return;
 }
 
-void resetLed (uint8_t led) {
-		if (led==1) HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_RESET);
-		if (led==2) HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_RESET);
-		if (led==3) HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin, GPIO_PIN_RESET);
-		if (led==4) HAL_GPIO_WritePin(LED4_GPIO_Port, LED4_Pin, GPIO_PIN_RESET);
-		if (led==5) HAL_GPIO_WritePin(LED5_GPIO_Port, LED5_Pin, GPIO_PIN_RESET);
-		if (led==6) HAL_GPIO_WritePin(LED6_GPIO_Port, LED6_Pin, GPIO_PIN_RESET);
-		if (led==7) HAL_GPIO_WritePin(LED7_GPIO_Port, LED7_Pin, GPIO_PIN_RESET);
-		if (led==8) HAL_GPIO_WritePin(LED8_GPIO_Port, LED8_Pin, GPIO_PIN_RESET);
-		return;
-}
-
-void setLeds(void) {
-	uint8_t s = 1;
-	while(s <= 8) {
-		setLed(s);
-		s++;
-	}
-
-	return;
-}
-
-void resetLeds(void) {
-	uint8_t r = 1;
-	while(r <= 8) {
-		resetLed(r);
-		r++;
-	}
-
-	return;
-}
-
 /**
 @brief Show_points, shows points after missed ball
 @param1 uint8_t L_points points for left player
@@ -124,4 +93,24 @@ void Show_points(uint8_t L_points, uint8_t R_points) {
 		HAL_Delay(10);
 	}
 	return;
+}
+
+/**
+@brief L_hit, check if L button is pressed
+@param void
+@return bool, true if L button pushed, false otherwise
+*/
+bool L_hit(void) {
+	if (HAL_GPIO_ReadPin(L_button_GPIO_Port, L_button_Pin) == 0) return true;
+	else return false;
+}
+
+/**
+@brief R_hit, check if R button is pressed
+@param void
+@return bool, true if R button pushed, false otherwise
+*/
+bool R_hit(void) {
+	if (HAL_GPIO_ReadPin(R_button_GPIO_Port, R_button_Pin) == 0) return true;
+	else return false;
 }
