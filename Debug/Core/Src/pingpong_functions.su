@@ -1,1 +1,4 @@
 pingpong_functions.c:23:6:Led_on	24	static
+pingpong_functions.c:72:6:Show_points	24	static
+pingpong_functions.c:83:6:Set_led	16	static
+pingpong_functions.c:96:6:Reset_led	8	static

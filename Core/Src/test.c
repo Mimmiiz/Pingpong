@@ -3,7 +3,7 @@
 
 void Test_program(void) {
 	//Test_Led();
-	Test_Show_Points();
+	Test_Show_points();
 }
 
 void Test_Led(void) {
