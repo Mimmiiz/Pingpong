@@ -62,3 +62,10 @@ void Led_on(uint8_t Lednr) {
 	} // end for-loop
 	return;
 } // End of functions Led_on
+
+/**
+@brief Show_points, shows points after missed ball
+@param1 uint8_t L_points points for left player
+@param2 uint8_t R_points points for right player
+@return void, no return value
+*/
