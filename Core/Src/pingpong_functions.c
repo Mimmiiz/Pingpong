@@ -63,8 +63,6 @@ void Led_on(uint8_t Lednr) {
 	return;
 } // End of functions Led_on
 
-<<<<<<< HEAD
-=======
 void setLed(uint8_t led) {
 		if (led==1) HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_SET);
 		if (led==2) HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_SET);
@@ -109,48 +107,11 @@ void resetLeds(void) {
 	return;
 }
 
->>>>>>> ed167ee054aaaf07c0ec9b1aaa82e68598eb8317
 /**
 @brief Show_points, shows points after missed ball
 @param1 uint8_t L_points points for left player
 @param2 uint8_t R_points points for right player
 @return void, no return value
-<<<<<<< HEAD
-*/
-void Show_points(uint8_t L_points, uint8_t R_points) {
-	for(uint8_t i = 1; i <= L_points; i++) {
-		Set_led(i);
-	}
-	/*for(uint8_t j = 8; j > R_points + 4; j--) {
-		Led_on(j);
-	}*/
-	//HAL_Delay(5000);
-	return;
-}
-
-void Set_led(uint8_t Lednr) {
-		if (Lednr==1) HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_SET);
-		if (Lednr==2) HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_SET);
-		if (Lednr==3) HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin, GPIO_PIN_SET);
-		if (Lednr==4) HAL_GPIO_WritePin(LED4_GPIO_Port, LED4_Pin, GPIO_PIN_SET);
-		if (Lednr==5) HAL_GPIO_WritePin(LED5_GPIO_Port, LED5_Pin, GPIO_PIN_SET);
-		if (Lednr==6) HAL_GPIO_WritePin(LED6_GPIO_Port, LED6_Pin, GPIO_PIN_SET);
-		if (Lednr==7) HAL_GPIO_WritePin(LED7_GPIO_Port, LED7_Pin, GPIO_PIN_SET);
-		if (Lednr==8) HAL_GPIO_WritePin(LED8_GPIO_Port, LED8_Pin, GPIO_PIN_SET);
-		else return;
-		return;
-}
-
-void Reset_led(void) {
-	HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(LED3_GPIO_Port, LED3_Pin, GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(LED4_GPIO_Port, LED4_Pin, GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(LED5_GPIO_Port, LED5_Pin, GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(LED6_GPIO_Port, LED6_Pin, GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(LED7_GPIO_Port, LED7_Pin, GPIO_PIN_RESET);
-}
-=======
  */
 
 void Show_points(uint8_t L_points, uint8_t R_points) {
@@ -164,4 +125,3 @@ void Show_points(uint8_t L_points, uint8_t R_points) {
 	}
 	return;
 }
->>>>>>> ed167ee054aaaf07c0ec9b1aaa82e68598eb8317
