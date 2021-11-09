@@ -1,2 +1,3 @@
-test.c:4:6:Test_program	8	static
-test.c:8:6:Test_Led	16	static
+test.c:6:6:Test_program	8	static
+test.c:11:6:Test_Led	16	static
+test.c:23:6:Test_Show_points	16	static
