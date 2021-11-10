@@ -86,11 +86,9 @@ void setLed(uint8_t led) {
 void Show_points(uint8_t L_points, uint8_t R_points) {
 	for (uint8_t i = 1; i <= L_points; i++) {
 		setLed(i);
-		HAL_Delay(10);
 	}
 	for(uint8_t j = 8; j > 8-R_points; j--) {
 		setLed(j);
-		HAL_Delay(10);
 	}
 	return;
 }
