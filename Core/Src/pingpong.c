@@ -44,7 +44,10 @@ void Pingpong(void) {
 	State = Start; // Initiate State to Start
 	NextState = Start;
 
-	Speed = 500000; // Number of loops
+	const uint32_t MAX_SPEED = 250000;
+	const uint32_t MIN_SPEED = 500000;
+	const uint32_t CHANGE_OF_SPEED = 25000;
+	Speed = MIN_SPEED; // Number of loops
 
 	/* Infinite loop */
 	while(1) {
@@ -59,6 +62,7 @@ void Pingpong(void) {
 			R_points = 0; // Set points to 0
 			Serve_L = true; // R player turn
 			ButtonPressed = false;
+			Speed = MIN_SPEED;
 
 			if(L_hit() == true) { // L serve
 				Led = 1;
@@ -88,6 +92,10 @@ void Pingpong(void) {
 
 			if(ButtonPressed) { // R pressed
 				if(Led == 8) { // and LED8 activated
+					if(Speed <= MAX_SPEED)
+						Speed = MAX_SPEED;
+					else
+						Speed -= CHANGE_OF_SPEED;
 					NextState = MoveLeft; // return ball
 					Led = 7;
 				}
@@ -121,6 +129,10 @@ void Pingpong(void) {
 
 			if(ButtonPressed) { // L pressed
 				if(Led == 1) { // and LED1 active
+					if(Speed <= MAX_SPEED)
+						Speed = MAX_SPEED;
+					else
+						Speed -= CHANGE_OF_SPEED;
 					NextState = MoveRight; // return ball
 					Led = 2;
 				}
@@ -167,6 +179,9 @@ void Pingpong(void) {
 		break;
 
 		case Serve: {
+
+			Speed = MIN_SPEED;
+
 			if (Serve_L == true) { // left player serves
 				Serve_L = false;
 				Led_on(1);
