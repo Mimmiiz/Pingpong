@@ -189,12 +189,15 @@ void Pingpong(void) {
 				NextState = MoveRight;
 				while (L_hit() != true); // wait until button is pressed
 			}
-			else { // right player serves
+			else if(Serve_L == false) { // right player serves
 				Serve_L = true;
 				Led_on(8);
 				Led = 8;
 				NextState = MoveLeft;
 				while (R_hit() != true); // wait until button is pressed
+			}
+			else {
+				NextState = Serve;
 			}
 		}
 		break;
